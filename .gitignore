@@ -1,0 +1,54 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Aa]rtifacts/
+publish/
+
+# Test and coverage output
+[Tt]est[Rr]esults/
+coverage/
+coverage.*
+*.coverage
+*.coveragexml
+
+# IDE and editor state
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Local configuration and secrets
+appsettings.Local.json
+appsettings.*.Local.json
+secrets.json
+.env
+.env.*
+!.env.example
+
+# NuGet packages and generated files
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+
+# Logs, temporary files, and OS metadata
+logs/
+*.log
+tmp/
+temp/
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Local database files
+*.mdf
+*.ldf
+*.db
+*.sqlite
+
+# Assessment source material
+Backend_Technical_Interview*.pdf
