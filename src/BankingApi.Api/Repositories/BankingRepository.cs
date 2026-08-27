@@ -56,7 +56,7 @@ public sealed class BankingRepository(IDbConnectionFactory connectionFactory) : 
         return new UserRegistrationResult(userId, accountNumber);
     }
 
-    public async Task<AuthenticatedUser?> GetUserByEmailAsync(string email, CancellationToken ct)
+    public async Task<User?> GetUserByEmailAsync(string email, CancellationToken ct)
     {
         const string sql = "SELECT Id, FullName, Email, PasswordHash FROM dbo.Users WHERE Email = @Email;";
         await using var connection = connectionFactory.CreateConnection();
@@ -65,7 +65,7 @@ public sealed class BankingRepository(IDbConnectionFactory connectionFactory) : 
             new { Email = email },
             cancellationToken: ct);
 
-        return await connection.QuerySingleOrDefaultAsync<AuthenticatedUser>(command);
+        return await connection.QuerySingleOrDefaultAsync<User>(command);
     }
 
     public async Task<AccountDetails?> GetAccountAsync(string userId, CancellationToken ct)

@@ -5,5 +5,5 @@ namespace BankingApi.Api.Services;
 
 public interface ITokenService
 {
-    AccessTokenResult Create(AuthenticatedUser user);
+    AccessTokenResult Create(User user);
 }

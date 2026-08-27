@@ -9,7 +9,7 @@ public interface IBankingRepository
         string email,
         string passwordHash,
         CancellationToken cancellationToken);
-    Task<AuthenticatedUser?> GetUserByEmailAsync(string email, CancellationToken cancellationToken);
+    Task<User?> GetUserByEmailAsync(string email, CancellationToken cancellationToken);
     Task<AccountDetails?> GetAccountAsync(string userId, CancellationToken cancellationToken);
     Task<bool> UpdateProfileAsync(string userId, string fullName, string? phoneNumber, CancellationToken cancellationToken);
     Task<FundTransferResult> TransferAsync(

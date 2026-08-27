@@ -24,7 +24,7 @@ public sealed class AuthService(
             passwords.Hash(request.Password),
             cancellationToken);
 
-        var user = new AuthenticatedUser
+        var user = new User
         {
             Id = registration.UserId,
             FullName = request.FullName.Trim(),

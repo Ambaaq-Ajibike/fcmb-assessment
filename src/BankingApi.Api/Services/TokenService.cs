@@ -13,7 +13,7 @@ public sealed class TokenService(IOptions<JwtOptions> options) : ITokenService
 {
     private readonly JwtOptions _options = options.Value;
 
-    public AccessTokenResult Create(AuthenticatedUser user)
+    public AccessTokenResult Create(User user)
     {
         var expiresAt = DateTimeOffset.UtcNow.AddMinutes(_options.ExpiryMinutes);
         var claims = new[]
