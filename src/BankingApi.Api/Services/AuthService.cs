@@ -1,17 +1,14 @@
 using BankingApi.Api.Contracts;
 using BankingApi.Api.Exceptions;
 using BankingApi.Api.Models.Entities;
-using BankingApi.Api.Options;
 using BankingApi.Api.Repositories;
-using Microsoft.Extensions.Options;
 
 namespace BankingApi.Api.Services;
 
 public sealed class AuthService(
     IBankingRepository repository,
     IPasswordService passwords,
-    ITokenService tokens,
-    IOptions<BankingOptions> options) : IAuthService
+    ITokenService tokens) : IAuthService
 {
     public async Task<AuthResponse> RegisterAsync(
         RegisterRequest request,
@@ -25,7 +22,6 @@ public sealed class AuthService(
             request.FullName.Trim(),
             email,
             passwords.Hash(request.Password),
-            options.Value.OpeningBalance,
             cancellationToken);
 
         var user = new AuthenticatedUser

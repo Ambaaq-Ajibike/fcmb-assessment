@@ -35,7 +35,6 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(JwtOptions.SectionName));
-builder.Services.Configure<BankingOptions>(builder.Configuration.GetSection(BankingOptions.SectionName));
 var jwt = builder.Configuration.GetSection(JwtOptions.SectionName).Get<JwtOptions>()
           ?? throw new InvalidOperationException("JWT configuration is missing.");
 if (Encoding.UTF8.GetByteCount(jwt.Key) < 32)

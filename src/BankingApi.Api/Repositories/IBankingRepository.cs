@@ -8,7 +8,6 @@ public interface IBankingRepository
         string fullName,
         string email,
         string passwordHash,
-        decimal openingBalance,
         CancellationToken cancellationToken);
     Task<AuthenticatedUser?> GetUserByEmailAsync(string email, CancellationToken cancellationToken);
     Task<AccountDetails?> GetAccountAsync(string userId, CancellationToken cancellationToken);

@@ -46,8 +46,7 @@ public sealed class BankingServiceTests
             string a,
             string b,
             string c,
-            decimal d,
-            CancellationToken e) => throw new NotImplementedException();
+            CancellationToken d) => throw new NotImplementedException();
         public Task<AuthenticatedUser?> GetUserByEmailAsync(string a, CancellationToken b) => throw new NotImplementedException();
         public Task<AccountDetails?> GetAccountAsync(string a, CancellationToken b) => throw new NotImplementedException();
         public Task<bool> UpdateProfileAsync(string a, string b, string? c, CancellationToken d) => throw new NotImplementedException();

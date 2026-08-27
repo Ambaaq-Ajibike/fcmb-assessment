@@ -12,7 +12,6 @@ public sealed class BankingRepository(IDbConnectionFactory connectionFactory) : 
         string fullName,
         string email,
         string passwordHash,
-        decimal openingBalance,
         CancellationToken ct)
     {
         await using var connection = connectionFactory.CreateConnection();
@@ -38,15 +37,14 @@ public sealed class BankingRepository(IDbConnectionFactory connectionFactory) : 
 
         var accountNumber = await GenerateUniqueAccountNumberAsync(connection, transaction, ct);
         const string accountSql = """
-            INSERT INTO dbo.Accounts (Id, UserId, AccountNumber, Balance)
-            VALUES (@Id, @UserId, @AccountNumber, @OpeningBalance);
+            INSERT INTO dbo.Accounts (Id, UserId, AccountNumber)
+            VALUES (@Id, @UserId, @AccountNumber);
             """;
         var accountParameters = new
         {
             Id = Guid.NewGuid().ToString(),
             UserId = userId,
-            AccountNumber = accountNumber,
-            OpeningBalance = openingBalance
+            AccountNumber = accountNumber
         };
         await connection.ExecuteAsync(new CommandDefinition(
             accountSql,
