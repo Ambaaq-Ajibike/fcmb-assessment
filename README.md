@@ -30,4 +30,4 @@ Register two users, copy the second user's account number, authorize as the firs
 - Passwords use ASP.NET Core's versioned password hasher and are never stored in plaintext.
 - Transfers run in a serializable SQL transaction. Both accounts are locked in ID order, the debit is conditional on sufficient balance, the credit and transaction record commit together, and rollback is automatic on failure.
 - SQL is parameterized throughout. Error responses use Problem Details with stable error codes and trace IDs.
-- Database changes are maintained as ordered SQL scripts in `database/`; Entity Framework Core is not used.
+- Database changes are maintained as ordered SQL scripts in `database/`.
