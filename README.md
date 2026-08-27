@@ -239,17 +239,3 @@ The current suite covers:
 - Transfer-amount validation
 - Phone-number validation
 
-## Interview demonstration flow
-
-Because new accounts start at zero, fund a demonstration account through an authorized database seed or administrative process before demonstrating a transfer. Do not expose a public deposit endpoint solely for the demonstration.
-
-Suggested flow:
-
-1. Register two users.
-2. Log in and authorize Swagger as the first user.
-3. Retrieve the first user's account.
-4. Fund the first account through the controlled demonstration process.
-5. Transfer funds to the second user's account number.
-6. Show the updated balances for both accounts.
-7. Show debit and credit transaction histories.
-8. Demonstrate invalid login, self-transfer, missing recipient, and insufficient-funds responses.
